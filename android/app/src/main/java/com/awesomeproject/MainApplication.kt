@@ -1,7 +1,9 @@
 package com.awesomeproject
 
 import android.app.Application
+import android.util.Log
 import com.braze.BrazeActivityLifecycleCallbackListener
+import com.braze.support.BrazeLogger
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
@@ -32,17 +34,6 @@ class MainApplication : Application(), ReactApplication {
             get() = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         override val isHermesEnabled: Boolean
             get() = BuildConfig.IS_HERMES_ENABLED
-
-//        protected val packages: List<Any>
-//            protected get() =// Packages that cannot be autolinked yet can be added manually here, for example:
-//                // packages.add(new MyReactNativePackage());
-//                PackageList(this).getPackages()
-//        protected val jSMainModuleName: String
-//            protected get() = "index"
-//        protected val isNewArchEnabled: Boolean
-//            protected get() = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
-//        protected val isHermesEnabled: Boolean
-//            protected get() = BuildConfig.IS_HERMES_ENABLED
     }
 
     override fun getReactNativeHost(): ReactNativeHost {
@@ -51,6 +42,7 @@ class MainApplication : Application(), ReactApplication {
 
     override fun onCreate() {
         super.onCreate()
+        BrazeLogger.logLevel = Log.VERBOSE
         SoLoader.init(this,  /* native exopackage */false)
         registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener())
         if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {

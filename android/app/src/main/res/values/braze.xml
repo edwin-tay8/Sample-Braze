@@ -12,4 +12,6 @@
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">1</integer>
 
   <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
+
+  <integer name="com_braze_logger_initial_log_level">2</integer>
 </resources>

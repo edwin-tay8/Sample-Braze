@@ -73,7 +73,7 @@ function App(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    Braze.changeUser('test-braze-user-011');
+    Braze.changeUser('test-braze-user-013');
     Braze.setEmail('braze-test-user@braze.com');
 
     notificationAlert();
